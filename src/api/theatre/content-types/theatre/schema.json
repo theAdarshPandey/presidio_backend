@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "theatres",
+  "info": {
+    "singularName": "theatre",
+    "pluralName": "theatres",
+    "displayName": "theatre",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "theatre_name": {
+      "type": "string",
+      "required": true
+    },
+    "theatre_address": {
+      "type": "text",
+      "required": true
+    },
+    "movies": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::movie.movie",
+      "mappedBy": "theatres"
+    },
+    "bookings": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::booking.booking",
+      "mappedBy": "theatre"
+    }
+  }
+}

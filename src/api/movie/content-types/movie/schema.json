@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "movies",
+  "info": {
+    "singularName": "movie",
+    "pluralName": "movies",
+    "displayName": "movie",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "movie_name": {
+      "type": "string",
+      "required": true
+    },
+    "theatres": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::theatre.theatre",
+      "inversedBy": "movies"
+    },
+    "bookings": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::booking.booking",
+      "mappedBy": "movie"
+    },
+    "movie_date": {
+      "type": "date",
+      "required": true,
+      "unique": false
+    },
+    "movie_genre": {
+      "type": "string"
+    },
+    "movie_poster_url": {
+      "type": "text",
+      "default": "https://media.istockphoto.com/vectors/film-strips-with-silhouette-of-cinema-projector-on-a-tripod-retro-vector-id1226615162?k=20&m=1226615162&s=612x612&w=0&h=9JGNODprtsTGmiG5sG2IHbT6ZFbUGskUOfef35EletI="
+    }
+  }
+}
